@@ -1,0 +1,237 @@
+/* =========================
+   EVENT PAGE – HOMEPAGE THEME
+========================= */
+
+/* -------- Sticky Event Header -------- */
+.event-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  padding: 28px 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 40%),
+    linear-gradient(180deg, #020617, #0b1220);
+  border-bottom: 1px solid #0f172a;
+}
+
+.event-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffe3;
+}
+
+.event-header p {
+  margin-top: 6px;
+  color: #94a3b8;
+  font-size: 1.5rem;
+}
+
+/* -------- Event Content Wrapper -------- */
+.event-content {
+  background: #ffffe3;
+  color: #0f172a;
+  padding: 80px 20px;
+  min-height: 100vh;
+}
+
+/* -------- Register Button -------- */
+.register-wrapper {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+/* -------- Accordion Layout -------- */
+.accordion {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* -------- Accordion Cards -------- */
+details {
+  background: #ffffe3;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 22px 26px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 20px rgba(2,6,23,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(2,6,23,0.1);
+}
+
+/* -------- Accordion Header -------- */
+summary {
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #020617;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: #2563eb;
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  content: "–";
+  transform: rotate(180deg);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary {
+  color: #2563eb;
+}
+
+/* -------- Accordion Content -------- */
+details p,
+details li {
+  margin-top: 14px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+details ul {
+  padding-left: 22px;
+}
+
+/* -------- Contact Buttons -------- */
+.contact-buttons {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.contact-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-buttons a:first-child {
+  background: #25d366;
+  color: white;
+}
+
+.contact-buttons a:last-child {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+}
+
+/* -------- Mobile Polishing -------- */
+@media (max-width: 600px) {
+
+  /* Header */
+  .event-header {
+    padding: 22px 16px;
+  }
+
+  .event-header h1 {
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+  }
+
+  .event-header p {
+    font-size: 1.2rem;
+  }
+
+  /* Content spacing */
+  .event-content {
+    padding: 56px 14px;
+  }
+
+  /* Accordion cards */
+  details {
+    padding: 18px 18px;
+  }
+
+  summary {
+    font-size: 1.05rem;
+    gap: 12px;
+  }
+
+  details p,
+  details li {
+    font-size: 0.95rem;
+  }
+
+  /* Contact buttons */
+  .event-content .contact-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .event-content .contact-buttons a {
+    height: 44px;
+    min-width: 44px;
+    padding: 0 12px;
+  }
+
+  .event-content .contact-buttons i {
+    font-size: 1.9rem;
+  }
+}
+/* =========================
+   EVENT PAGE CONTACT BUTTON FIX
+========================= */
+
+.event-content .contact-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.event-content .contact-buttons a {
+  flex: 0 0 auto;      /* STOP stretching */
+  width: auto;         /* content-based width */
+  padding: 0 14px;     /* compact pill */
+  height: 48px;
+  min-width: 48px;
+
+  border-radius: 14px; /* squircle */
+}
+
+.event-content .contact-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-content .contact-buttons i {
+  font-size: 2.1rem;
+  line-height: 1;
+  display: block;
+}
+
+/* Prevent accordion content from feeling cramped */
+details > *:not(summary) {
+  margin-top: 12px;
+}
+
+@media (hover: none) {
+  details:hover {
+    transform: none;
+    box-shadow: 0 10px 20px rgba(2,6,23,0.06);
+  }
+
+  .contact-buttons a:active {
+    transform: scale(0.96);
+  }
+}

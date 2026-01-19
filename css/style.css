@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Saira", "Helvetica Neue", Arial, sans-serif;
+  background-color: #0b1220;
+  color: #ffffe3;
+  line-height: 1.7;
+  padding-top: 76px;
+}
+
+/* =========================
+   TOP BAR (STICKY)
+========================= */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #020617;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #0f172a;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+}
+
+/* =========================
+   HAMBURGER BUTTON
+========================= */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #ffffe3;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* =========================
+   NAV MENU (CLOSED STATE)
+========================= */
+.nav-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+
+  background: #020617;
+  display: none;                /* CLOSED */
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 28px 0;
+
+  border-bottom: 1px solid #0f172a;
+}
+
+/* =========================
+   NAV MENU (OPEN STATE)
+========================= */
+.nav-menu.active {
+  display: flex;                /* OPEN */
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffe3;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.nav-menu a:hover {
+  color: #38bdf8;
+}
+
+/* =========================
+   HERO / INTRO
+========================= */
+.hero {
+  position: relative;
+  min-height: auto;
+  padding: 100px 0 140px; /* remove horizontal padding and add bottom padding */
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.75),
+      rgba(2, 6, 23, 0.85)
+    ),
+    url("../assets/hero-bg.png") center / cover no-repeat;
+
+  z-index: 1;
+  max-width: none;
+}
+
+.hero h1 {
+  font-size: 4.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffe3;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #ffffe3;
+}
+
+.date {
+  margin-top: 12px;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #ffffe3;
+}
+
+/* =========================
+   HERO COUNTDOWN
+========================= */
+.countdown {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.countdown-label {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #ffffe3;
+  letter-spacing: 0.5px;
+}
+
+.countdown-time {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #ffffe3;
+}
+
+/* Countdown number tick animation */
+@keyframes countdownTick {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.countdown-time span {
+  display: inline-block;
+}
+
+.countdown-time span.tick {
+  animation: countdownTick 0.3s ease;
+}
+
+/* =========================
+   LIVE NOW ANIMATION
+========================= */
+@keyframes livePulse {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(56,189,248,0.0);
+  }
+  50% {
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(56,189,248,0.6);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(56,189,248,0.0);
+  }
+}
+
+.countdown-label.live {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #38bdf8;
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.content {
+  background: #ffffe3;
+  color: #0f172a;
+  padding: 80px 24px;
+  margin-top: -100px;          /* visual overlap */
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.content section {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 72px;
+}
+
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+section p,
+section li {
+  color: #334155;
+  font-size: 1.05rem;
+}
+
+section ul {
+  padding-left: 20px;
+}
+
+section li {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+.cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+/* =========================
+   MOBILE POLISH
+========================= */
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 64px;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+    letter-spacing: 1.2px;
+  }
+
+  .hero-inner {
+    padding: 0 18px;
+  }
+
+  .subtitle,
+  .date {
+    font-size: 1.25rem;
+  }
+
+  /* COUNTDOWN */
+  .countdown {
+    margin-top: 48px;
+  }
+
+  .countdown-label {
+    font-size: 1.25rem;
+  }
+
+  .countdown-time {
+    font-size: 1.6rem;
+  }
+
+  /* NAV / BRAND */
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  /* CONTENT */
+  .content {
+    padding: 64px 18px;
+    margin-top: -56px;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* CTA */
+  .cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* CONTACT BUTTONS */
+  #contact-us .contact-buttons {
+    justify-content: center;
+  }
+
+  #contact-us .contact-buttons a {
+    height: 44px;
+    min-width: 44px;
+    padding: 0 12px;
+  }
+
+  #contact-us .contact-btn i {
+    font-size: 2rem;
+  }
+}
+/* =========================
+   NAV ANIMATION & OVERLAY
+========================= */
+
+/* Slide-down animation */
+.nav-menu {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.nav-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Background overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 900;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+#events ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#events ul li a:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   TYPOGRAPHY POLISH (SAIRA)
+========================= */
+
+/* Headings: stronger academic presence */
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+/* Accordion / navigation text clarity */
+summary,
+.nav-menu a {
+  font-weight: 600;
+}
+
+/* Body text: improve long-read comfort */
+p, li {
+  font-weight: 400;
+}
+
+/* Small UI text (dates, subtitles) */
+.subtitle,
+.date,
+footer {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+/* =========================
+   HOME PAGE CONTACT BUTTONS
+========================= */
+
+#contact-us .contact-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#contact-us .contact-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+  padding: 0 14px;
+  min-width: 48px;
+
+  flex: 0 0 auto;
+  width: auto;
+
+  border-radius: 14px;
+  text-decoration: none;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* Platform colors */
+#contact-us .contact-btn.whatsapp {
+  background-color: #25D366;
+}
+
+#contact-us .contact-btn.instagram {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #feda75,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+}
+
+#contact-us .contact-btn.email {
+  background-color: #2563eb;
+}
+
+/* ICON SIZE — THIS WILL FINALLY APPLY */
+#contact-us .contact-btn i {
+  font-size: 2.2rem;
+  line-height: 1;
+  display: block;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px; /* text padding only */
+}
+
+html, body {
+  overflow-x: hidden;
+}
