@@ -108,6 +108,34 @@ details ul {
   padding-left: 22px;
 }
 
+/* -------- Accordion Section Spacing Fix -------- */
+
+/* Section headings inside accordion */
+details h4,
+details h5 {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Remove extra space above first heading */
+details h4:first-of-type,
+details h5:first-of-type {
+  margin-top: 0;
+}
+
+/* Text immediately under headings */
+details p {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+/* Lists under headings */
+details ul {
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
 /* -------- Contact Buttons -------- */
 .contact-buttons {
   display: flex;
@@ -222,7 +250,7 @@ details ul {
 
 /* Prevent accordion content from feeling cramped */
 details > *:not(summary) {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 @media (hover: none) {
